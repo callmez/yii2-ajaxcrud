@@ -16,7 +16,7 @@ echo "<?php\n";
 ?>
 
 use yii\helpers\Html;
-use johnitvn\ajaxcrudassets\CrudAsset; 
+use callmez\ajaxcrudassets\CrudAsset;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */

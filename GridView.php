@@ -1,5 +1,5 @@
 <?php
-namespace johnitvn\ajaxcrud;
+namespace callmez\ajaxcrud;
 
 use kartik\grid\GridView as BaseGridView;
 use yii\helpers\Html;
@@ -7,10 +7,11 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 /**
- * @author John Martin <john.itvn@gmail.com>
- * @since 1.0
+ * Ajax Crud GridView
+ * @package callmez\ajaxcrud
  */
-class GridView extends BaseGridView{
+class GridView extends BaseGridView
+{
 
 
     public $pjax = 'true';
@@ -26,7 +27,7 @@ class GridView extends BaseGridView{
         if (!$this->toggleData) {
             return '';
         }
-        
+
         $tag = $this->_isShowAll ? 'page' : 'all';
         $label = $this->toggleDataOptions[$tag]['label'];
         $url = Url::current([$this->_toggleDataKey => $tag]);
@@ -35,7 +36,6 @@ class GridView extends BaseGridView{
     }
 
 
-    
     /**
      * Renders the toggle data button
      *
@@ -45,9 +45,9 @@ class GridView extends BaseGridView{
     {
         if (!$this->toggleData) {
             return '';
-        }        
-        $tag = $this->_isShowAll ? 'page' : 'all';       
-        $url = Url::current([$this->_toggleDataKey => $tag]);      
+        }
+        $tag = $this->_isShowAll ? 'page' : 'all';
+        $url = Url::current([$this->_toggleDataKey => $tag]);
         $label = $this->toggleDataOptions[$tag]['label'];
         return Html::a($label, $url, $this->toggleDataOptions[$tag]);
     }
@@ -62,7 +62,7 @@ class GridView extends BaseGridView{
             return;
         }
         $defaultOptions = [
-           'all' => [
+            'all' => [
                 'icon' => 'option-vertical',
                 'label' => 'All',
                 'class' => 'btn btn-default',
@@ -73,7 +73,7 @@ class GridView extends BaseGridView{
                 'label' => 'Page',
                 'class' => 'btn btn-default',
                 'title' => 'Show first page data',
-            ],      
+            ],
         ];
         if (empty($this->toggleDataOptions['page'])) {
             $this->toggleDataOptions['page'] = $defaultOptions['page'];
@@ -85,19 +85,17 @@ class GridView extends BaseGridView{
         $options = $this->toggleDataOptions[$tag];
 
 
-        $icon = ArrayHelper::remove($this->toggleDataOptions[$tag], 'icon', ''); 
-        $label = !isset($options['label']) ? $defaultOptions[$tag]['label'] : $options['label'];      
-        if (!empty($icon)) {  
-            $label =  '<i class="glyphicon glyphicon-'.$icon.'"></i> '.$label; 
-        } 
+        $icon = ArrayHelper::remove($this->toggleDataOptions[$tag], 'icon', '');
+        $label = !isset($options['label']) ? $defaultOptions[$tag]['label'] : $options['label'];
+        if (!empty($icon)) {
+            $label = '<i class="glyphicon glyphicon-' . $icon . '"></i> ' . $label;
+        }
         $this->toggleDataOptions[$tag]['label'] = $label;
         if (!isset($this->toggleDataOptions[$tag]['title'])) {
             $this->toggleDataOptions[$tag]['title'] = $defaultOptions[$tag]['title'];
-        }        
+        }
         $this->toggleDataOptions[$tag]['data-pjax'] = $this->pjax ? "true" : false;
     }
-
-
 
 
     /**

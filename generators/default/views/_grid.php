@@ -20,7 +20,7 @@ echo "<?php\n";
 ?>
 use yii\helpers\Url;
 use yii\widgets\Pjax;
-use johnitvn\ajaxcrud\GridView;
+use callmez\ajaxcrud\GridView;
 use yii\helpers\Html;
 use <?=$generator->controllerClass?>; 
 

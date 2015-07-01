@@ -1,5 +1,5 @@
 <?php
-namespace johnitvn\ajaxcrud\generators;
+namespace callmez\ajaxcrud\generators;
 
 use Yii;
 use yii\db\ActiveRecord;
@@ -9,7 +9,7 @@ use yii\gii\CodeFile;
 use yii\helpers\Inflector;
 use yii\helpers\VarDumper;
 use yii\web\Controller;
-use johnitvn\ajaxcrud\TouchableInterface;
+use callmez\ajaxcrud\TouchableInterface;
 /**
  * Generates CRUD
  *
@@ -19,9 +19,6 @@ use johnitvn\ajaxcrud\TouchableInterface;
  * @property array $searchAttributes Searchable attributes. This property is read-only.
  * @property boolean|\yii\db\TableSchema $tableSchema This property is read-only.
  * @property string $viewPath The controller view path. This property is read-only.
- *
- * @author John Martin <john.itvn@gmail.com>
- * @since 1.0
  */
 class Generator extends \yii\gii\Generator
 {

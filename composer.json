@@ -1,26 +1,25 @@
 {
-    "name": "johnitvn/yii2-ajaxcrud",
-    "description": "Gii CRUD template for Single Page Ajax Administration for yii2",
+    "name": "callmez/yii2-ajaxcrud",
+    "description": "单页AJAX-CRUD GII模板生成器",
     "type": "yii2-extension",
-    "keywords": ["yii2","extension","ajax","crud","gii","template","database"],
+    "keywords": ["yii2", "extension", "ajax", "crud", "gii", "template"],
     "license": "Apache-2.0",
     "authors": [
         {
-            "name": "John Martin",
-            "email": "john.itvn@gmail.com"
+            "name": "CallMeZ",
+            "email": "callme-z@qq.com"
         }
     ],
     "require": {
-        "yiisoft/yii2": "~2.0.4",
-        "yiisoft/yii2-gii": "~2.0.4",
-        "johnitvn/yii2-ajaxcrud-assets": "*"      
+        "yiisoft/yii2": ">=2.0.x-dev",
+        "yiisoft/yii2-gii": "*"
     },
     "autoload": {
         "psr-4": {
-            "johnitvn\\ajaxcrud\\": "src/"
+            "callmez\\ajaxcrud\\": ""
         }
     },
     "extra": {
-        "bootstrap": "johnitvn\\ajaxcrud\\Bootstrap"
+        "bootstrap": "callmez\\Bootstrap"
     }
 }
