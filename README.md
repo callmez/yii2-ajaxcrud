@@ -44,12 +44,33 @@ For first you must enable Gii module Read more about [Gii code generation tool](
 
 Because this extension used [kartik-v/yii2-grid](https://github.com/kartik-v/yii2-grid) extensions so we must config gridview module before
 
-Let 's add into modules config in your main config file
+Add Gii module generator
+````php
+'gii' => [
+    ...
+    'generators' =>  [
+        'ajaxcrud' => 'callmez\ajaxcrud\generators\Generator'
+    ],
+    ...
+]
+````
+
+Edit modules config in your main config file
 ````php
 'modules' => [
+    ...
+    
     'gridview' =>  [
-        'class' => '\kartik\grid\Module'
-    ]       
+        'class' => 'kartik\grid\Module'
+    ],
+    'gii' => [
+        ...
+        
+        'generators' =>  [
+            ...
+            'ajaxcrud' => 'callmez\ajaxcrud\generators\Generator'
+        ]
+    ]
 ]
 ````
 
