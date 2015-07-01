@@ -21,6 +21,6 @@
         }
     },
     "extra": {
-        "bootstrap": "callmez\\Bootstrap"
+        "bootstrap": "callmez\\wechat\\Bootstrap"
     }
 }
