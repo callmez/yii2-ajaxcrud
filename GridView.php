@@ -1,10 +1,10 @@
 <?php
 namespace callmez\ajaxcrud;
 
-use kartik\grid\GridView as BaseGridView;
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Url;
+use kartik\grid\GridView as BaseGridView;
 
 /**
  * Ajax Crud GridView
@@ -12,10 +12,7 @@ use yii\helpers\Url;
  */
 class GridView extends BaseGridView
 {
-
-
     public $pjax = 'true';
-
 
     /**
      * Renders the toggle data button
