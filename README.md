@@ -81,6 +81,10 @@ yii2-ajaxcrud is released under the Apache-2.0.
 
 Versions History
 ----------------------------
+<b>Version 1.0.4</b>
++ Code format, The generate code looks good now.
+
+The generate code looks good now.
 <b>Version 1.0.3</b>
 + Separate assets to yii2-ajaxcrud-assets
 
