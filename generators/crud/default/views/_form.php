@@ -26,17 +26,18 @@ use yii\widgets\ActiveForm;
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-form">
 
     <?= "<?php " ?>$form = ActiveForm::begin(); ?>
+    <?php foreach ($generator->getColumnNames() as $attribute) {
+        if (in_array($attribute, $safeAttributes)) {
+            echo "\n        <?= " . $generator->generateActiveField($attribute) . " ?>\n";
+        }
+    } ?>
 
-<?php foreach ($generator->getColumnNames() as $attribute) {
-    if (in_array($attribute, $safeAttributes)) {
-        echo "    <?= " . $generator->generateActiveField($attribute) . " ?>\n\n";
-    }
-} ?>  
-<?='<?php if (!Yii::$app->request->isAjax){ ?>'."\n"?>
-  	<div class="form-group">
-        <?= "<?= " ?>Html::submitButton($model->isNewRecord ? <?= $generator->generateString('Create') ?> : <?= $generator->generateString('Update') ?>, ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
-<?="<?php } ?>\n"?>
+    <?= '<?php if (!Yii::$app->request->isAjax): ?>' . "\n" ?>
+        <div class="form-group">
+            <?= "<?= " ?>Html::submitButton($model->isNewRecord ? <?= $generator->generateString('Create') ?> : <?= $generator->generateString('Update') ?>, ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'])<?= " ?>\n" ?>
+        </div>
+    <?= "<?php endif ?>\n" ?>
 
-    <?= "<?php " ?>ActiveForm::end(); ?>
+    <?= "<?php " ?>ActiveForm::end()<?= " ?>" ?>
+
 </div>

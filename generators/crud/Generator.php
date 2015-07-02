@@ -1,5 +1,5 @@
 <?php
-namespace callmez\ajaxcrud\generators;
+namespace callmez\ajaxcrud\generators\crud;
 
 use Yii;
 use yii\db\ActiveRecord;

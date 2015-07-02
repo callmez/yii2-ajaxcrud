@@ -18,22 +18,24 @@ use yii\widgets\DetailView;
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-view">
 
-  
+
     <?= "<?= " ?>DetailView::widget([
         'model' => $model,
         'attributes' => [
-<?php
-if (($tableSchema = $generator->getTableSchema()) === false) {
-    foreach ($generator->getColumnNames() as $name) {
-        echo "            '" . $name . "',\n";
-    }
-} else {
-    foreach ($generator->getTableSchema()->columns as $column) {
-        $format = $generator->generateColumnFormat($column);
-        echo "            '" . $column->name . ($format === 'text' ? "" : ":" . $format) . "',\n";
-    }
-}
-?>
+        <?php
+        if (($tableSchema = $generator->getTableSchema()) === false) {
+            foreach ($generator->getColumnNames() as $name) {
+                echo "\n            '{$name}',";
+            }
+        } else {
+            foreach ($generator->getTableSchema()->columns as $column) {
+                $format = $generator->generateColumnFormat($column);
+                echo "\n            '" . $column->name . ($format === 'text' ? '' : ':' . $format) . "',";
+            }
+        }
+        ?>
+
+
         ],
     ]) ?>
 

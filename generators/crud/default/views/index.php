@@ -2,7 +2,6 @@
 
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
-use yii\bootstrap\Modal;
 use yii\helpers\Url;
 use yii\helpers\Html;
 
@@ -12,12 +11,16 @@ use yii\helpers\Html;
 
 $urlParams = $generator->generateUrlParams();
 $nameAttribute = $generator->getNameAttribute();
-echo "<?php\n";
+echo "<?php";
+
 ?>
 
-use yii\helpers\Html;
-use callmez\ajaxcrudassets\CrudAsset;
 use yii\helpers\Url;
+use yii\helpers\Html;
+use yii\bootstrap\Modal;
+use callmez\ajaxcrud\assets\CrudAsset;
+
+CrudAsset::register($this);
 
 /* @var $this yii\web\View */
 <?= !empty($generator->searchModelClass) ? "/* @var \$searchModel " . ltrim($generator->searchModelClass, '\\') . " */\n" : '' ?>
@@ -25,26 +28,21 @@ use yii\helpers\Url;
 
 $this->title = <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>;
 $this->params['breadcrumbs'][] = $this->title;
-
-CrudAsset::register($this);
-
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-index">
     <div id="ajaxCrudDatatable">
-        <?="<?php\n"?>
-            <?php if (!empty($generator->searchModelClass)): ?>
-                echo $this->render('_grid', [ 
-                    'searchModel' => $searchModel,
-                    'dataProvider' => $dataProvider,
-                ]);
-            <?php else: ?>               
-                echo $this->render('_grid', [
-                    'dataProvider' => $dataProvider,
-                ]);
-            <?php endif; ?>            
-        <?="?>\n"?>
+
+        <?= "<?" ?>=$this->render('_grid', [
+            <?= !empty($generator->searchModelClass) ? '\'searchModel\' => $searchModel,' : '' ?>
+
+            'dataProvider' => $dataProvider,
+        ]) <?= '?>' ?>
+
+
     </div>
 </div>
-<?php Modal::begin(['id'=>'ajaxCrubModal'])?>
-<?php Modal::end(); ?>
+<?="<?php\n" ?>
+    Modal::begin(['id' => 'ajaxCrubModal']);
+    Modal::end();
+<?= '?>' ?>
 
