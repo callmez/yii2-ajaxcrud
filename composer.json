@@ -13,14 +13,13 @@
     "require": {
         "yiisoft/yii2": ">=2.0.x-dev",
         "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-gii": "*"
+        "yiisoft/yii2-gii": "*",
+
+        "kartik-v/yii2-grid": "~3.0"
     },
     "autoload": {
         "psr-4": {
             "callmez\\ajaxcrud\\": ""
         }
-    },
-    "extra": {
-        "bootstrap": "callmez\\wechat\\Bootstrap"
     }
 }
